@@ -77,11 +77,7 @@ def analisis():
     
     X_test = pd.DataFrame(data_test)
     new_predictions = modelo.predict(X_test)
-
-    # Imprime las predicciones
-    print("Predicciones para 'magnitudo' y 'frequency':")
-    print(new_predictions)
-    return jsonify({'magnitudo': 1, 'frequency': 1})
+    return jsonify({'magnitudo': new_predictions[0][0], 'frequency': new_predictions[0][1]})
 
 
 if __name__ == '__main__':
