@@ -9,10 +9,6 @@ body {
     height: 100vh;
 }
 
-.container {
-    display: flex;
-}
-
 form {
     max-width: 400px;
     width: 100%;
@@ -39,7 +35,7 @@ select {
     border-radius: 4px;
 }
 
-input[type="submit"] {
+input[type="button"] {
     background-color: #4caf50;
     color: #fff;
     padding: 12px;
@@ -50,13 +46,11 @@ input[type="submit"] {
     font-weight: bold;
 }
 
-input[type="submit"]:hover {
+input[type="button"]:hover {
     background-color: #45a049;
 }
 
-#mapid {
-    height: 400px;
-    flex-grow: 1;
-    border-radius: 8px;
-    overflow: hidden;
+#map {
+    height: 400px; /* The height is 400 pixels */
+    width: 100%; /* The width is the width of the web page */
 }

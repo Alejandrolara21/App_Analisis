@@ -1,5 +1,4 @@
-let mymap;
-let markerLayer = L.layerGroup();
+let map;
 
 const getCountryCoordinates = async (countryName) => {
     try {
@@ -13,8 +12,8 @@ const getCountryCoordinates = async (countryName) => {
 
             return { latitude, longitude };
         } else {
-            document.getElementById("mapid").innerHTML = "";
-            document.getElementById("mapid").innerHTML = `<h2>No se encontraron coordenadas para el país: ${countryName}</h2>`;
+            document.getElementById("errorCountry").innerHTML = "";
+            document.getElementById("errorCountry").innerHTML = `<h2>No se encontraron coordenadas para el país: ${countryName}</h2>`;
         }
     } catch (error) {
         console.error('Error al obtener datos de REST Countries API:', error);
@@ -34,7 +33,7 @@ const getResultModel = async (dataAPI) => {
         const data = await response.json();
         return data;
     } catch (error) {
-        console.error('Error al obtener datos de REST Countries API:', error);
+        document.getElementById("showInfoModel").innerHTML = `<h2>Error al obtener datos de REST Countries API: ${error}</h2>`;
         return;
     }
 }
@@ -73,65 +72,76 @@ const handleOptionChange = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     handleOptionChange();
-});
-
-document.getElementById("myForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    let depth = parseInt(document.getElementById("depth").value, 10) || 0;
-    let optionTime = parseInt(document.getElementById("optionTime").value, 10) || 0;
-    let year = parseInt(document.getElementById("year").value, 10) || 0;
-    let season = parseInt(document.getElementById("season").value, 10) || 0;
-    let month = parseInt(document.getElementById("month").value, 10) || 0;
-    let significance = parseInt(document.getElementById("significance").value, 10) || 0;
-    let state_id = parseInt(document.getElementById("state_id").value, 10) || 0;
-
-    if (optionTime == 1) {
-        season = 0;
-        month = 0
-    } else if (optionTime == 2) {
-        month = 0;
-    } else if (optionTime == 3 || optionTime == 4) {
-        season = 0;
-    }
-
-    const formData = {
-        depth,
-        optionTime,
-        year,
-        season,
-        month,
-        significance,
-        state_id
-    };
-
-    const stateIdElement = document.getElementById("state_id");
-    const countryName = stateIdElement.options[stateIdElement.selectedIndex].text;
-
-    const coordinates = await getCountryCoordinates(countryName);
-    const dataModel = await getResultModel(formData);
+    document.getElementById("btnForm").addEventListener("click", async (e) => {
+        e.preventDefault();
+        let depth = parseInt(document.getElementById("depth").value, 10) || 0;
+        let optionTime = parseInt(document.getElementById("optionTime").value, 10) || 0;
+        let year = parseInt(document.getElementById("year").value, 10) || 0;
+        let season = parseInt(document.getElementById("season").value, 10) || 0;
+        let month = parseInt(document.getElementById("month").value, 10) || 0;
+        let significance = parseInt(document.getElementById("significance").value, 10) || 0;
+        let state_id = parseInt(document.getElementById("state_id").value, 10) || 0;
     
-    if (coordinates) {
-        document.getElementById("showInfoModel").innerHTML = "";
-        if (!mymap) {
-            mymap = L.map('mapid').setView([coordinates.latitude, coordinates.longitude], 2);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(mymap);
+        if (optionTime == 1) {
+            season = 0;
+            month = 0
+        } else if (optionTime == 2) {
+            month = 0;
+        } else if (optionTime == 3 || optionTime == 4) {
+            season = 0;
         }
-
-        mymap.eachLayer(layer => {
-            if (layer instanceof L.Marker) {
-                mymap.removeLayer(layer);
-            }
-        });
-
-        let marker = L.marker([coordinates.latitude, coordinates.longitude]).addTo(mymap);
-        marker.bindPopup(`<b>${countryName}</b><br>Magnitud: ${dataModel.magnitudo}<br>Frecuencia: ${dataModel.frequency}`).openPopup();
-    }else{
+    
+        const formData = {
+            depth,
+            optionTime,
+            year,
+            season,
+            month,
+            significance,
+            state_id
+        };
+    
+        const stateIdElement = document.getElementById("state_id");
+        const countryName = stateIdElement.options[stateIdElement.selectedIndex].text;
+    
+        const coordinates = await getCountryCoordinates(countryName);
+        const dataModel = await getResultModel(formData);
+        console.log(dataModel);
+        
+        if (coordinates) {
+            document.getElementById("map").innerHTML = "";
+            document.getElementById("errorCountry").innerHTML = "";
+            initMap({lat: coordinates.latitude, lng: coordinates.longitude});
+        }else{
+            document.getElementById("map").innerHTML = "";
+        }
         document.getElementById("showInfoModel").innerHTML = "";
         document.getElementById("showInfoModel").innerHTML = `<h2>Magnitud: ${dataModel.magnitudo}<br>Frecuencia: ${dataModel.frequency}</h2>`;
-    }
-
+    
+    });
+    
 });
 
 
+async function initMap({lat, lng}) {
+    // The location of Uluru
+    const position = { lat: lat, lng: lng };
+    // Request needed libraries.
+    //@ts-ignore
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+    // The map, centered at Uluru
+    map = new Map(document.getElementById("map"), {
+        zoom: 4,
+        center: position,
+        mapId: "Map_Main",
+    });
+
+    // The marker, positioned at Uluru
+    const marker = new AdvancedMarkerView({
+        map: map,
+        position: position,
+        title: "Uluru",
+    });
+}

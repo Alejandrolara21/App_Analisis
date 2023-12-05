@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <title>Document</title>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <title>Proyecto Analisis</title>
 </head>
 <body>
     <form id="myForm">
@@ -70,23 +71,1057 @@
         <!-- Campo Lugar -->
         <label for="state_id">Lugar:</label>
         <select id="state_id" name="state_id" required>
-            {% for estado in list_countries %}
-                <option value="{{ estado['state_id'] }}">{{ estado['state'] }}</option>
-            {% endfor %}
+            <option value="0">2004 Sumatra - Andaman Islands Earthquake</option>
+            
+            <option value="1">AK</option>
+        
+            <option value="2">AR</option>
+        
+            <option value="3">AZ</option>
+        
+            <option value="4">Adriatic Sea</option>
+        
+            <option value="5">Aegean Sea</option>
+        
+            <option value="6">Afghanistan</option>
+        
+            <option value="7">Alabama</option>
+        
+            <option value="8">Aland Islands</option>
+        
+            <option value="9">Alaska</option>
+        
+            <option value="10">Alaska Peninsula</option>
+        
+            <option value="11">Alaska region</option>
+        
+            <option value="12">Albania</option>
+        
+            <option value="13">Aleutian Islands</option>
+        
+            <option value="14">Algeria</option>
+        
+            <option value="15">Andorra</option>
+        
+            <option value="16">Angola</option>
+        
+            <option value="17">Anguilla</option>
+        
+            <option value="18">Antarctica</option>
+        
+            <option value="19">Antigua and Barbuda</option>
+        
+            <option value="20">Arabian Sea</option>
+        
+            <option value="21">Arafura Sea</option>
+        
+            <option value="22">Arctic Ocean</option>
+        
+            <option value="23">Argentina</option>
+        
+            <option value="24">Arizona</option>
+        
+            <option value="25">Arkansas</option>
+        
+            <option value="26">Arkansas-Oklahoma border region</option>
+        
+            <option value="27">Armenia</option>
+        
+            <option value="28">Ascension Island region</option>
+        
+            <option value="29">Australia</option>
+        
+            <option value="30">Austria</option>
+        
+            <option value="31">Azerbaijan</option>
+        
+            <option value="32">Azores Islands region</option>
+        
+            <option value="33">Azores-Cape St. Vincent Ridge</option>
+        
+            <option value="34">B.C.</option>
+        
+            <option value="35">Baffin Bay</option>
+        
+            <option value="36">Bahamas</option>
+        
+            <option value="37">Bali Sea</option>
+        
+            <option value="38">Balleny Islands region</option>
+        
+            <option value="39">Baltic Sea</option>
+        
+            <option value="40">Banda Sea</option>
+        
+            <option value="41">Bangladesh</option>
+        
+            <option value="42">Barbados</option>
+        
+            <option value="43">Barents Sea</option>
+        
+            <option value="44">Bay of Bengal</option>
+        
+            <option value="45">Bay of Biscay</option>
+        
+            <option value="46">Bay of Campeche</option>
+        
+            <option value="47">Beaufort Sea</option>
+        
+            <option value="48">Belgium</option>
+        
+            <option value="49">Belize</option>
+        
+            <option value="50">Benin</option>
+        
+            <option value="51">Bering Sea</option>
+        
+            <option value="52">Bering Strait</option>
+        
+            <option value="53">Bermuda</option>
+        
+            <option value="54">Bhutan</option>
+        
+            <option value="55">Bismarck Sea</option>
+        
+            <option value="56">Bolivia</option>
+        
+            <option value="57">Bonaire</option>
+        
+            <option value="58">Bosnia and Herzegovina</option>
+        
+            <option value="59">Bosnia and Herzegovina region</option>
+        
+            <option value="60">Botswana</option>
+        
+            <option value="61">Bouvet Island region</option>
+        
+            <option value="62">Brazil</option>
+        
+            <option value="63">Bristol Bay</option>
+        
+            <option value="64">Broken Ridge</option>
+        
+            <option value="65">Brunei</option>
+        
+            <option value="66">Bulgaria</option>
+        
+            <option value="67">Burundi</option>
+        
+            <option value="68">CA Earthquake</option>
+        
+            <option value="69">CO</option>
+        
+            <option value="70">Cabo Verde</option>
+        
+            <option value="71">California</option>
+        
+            <option value="72">California-Baja California border region</option>
+        
+            <option value="73">California-Nevada border region</option>
+        
+            <option value="74">California-Nevada-Arizona border region</option>
+        
+            <option value="75">Cameroon</option>
+        
+            <option value="76">Canada</option>
+        
+            <option value="77">Cape Verde</option>
+        
+            <option value="78">Carlsberg Ridge</option>
+        
+            <option value="79">Caspian Sea</option>
+        
+            <option value="80">Cayman Islands</option>
+        
+            <option value="81">Celebes Sea</option>
+        
+            <option value="82">Central African Republic</option>
+        
+            <option value="83">Central Alaska</option>
+        
+            <option value="84">Central California</option>
+        
+            <option value="85">Centrale GIKO</option>
+        
+            <option value="86">Chagos Archipelago region</option>
+        
+            <option value="87">Chile</option>
+        
+            <option value="88">China</option>
+        
+            <option value="89">Colombia</option>
+        
+            <option value="90">Colorado</option>
+        
+            <option value="91">Comoros</option>
+        
+            <option value="92">Connecticut</option>
+        
+            <option value="93">Costa Rica</option>
+        
+            <option value="94">Croatia</option>
+        
+            <option value="95">Crozet Islands region</option>
+        
+            <option value="96">Cuba</option>
+        
+            <option value="97">Cyprus</option>
+        
+            <option value="98">Czech Republic</option>
+        
+            <option value="99">Czechia</option>
+        
+            <option value="100">D&#39;Entrecasteaux Islands region</option>
+        
+            <option value="101">Davis Strait</option>
+        
+            <option value="102">Dead Sea region</option>
+        
+            <option value="103">Delaware</option>
+        
+            <option value="104">Democratic Republic of the Congo</option>
+        
+            <option value="105">Denmark</option>
+        
+            <option value="106">Djibouti</option>
+        
+            <option value="107">Dominica</option>
+        
+            <option value="108">Dominican Republic</option>
+        
+            <option value="109">Drake Passage</option>
+        
+            <option value="110">East Timor</option>
+        
+            <option value="111">East of the Bonin Islands</option>
+        
+            <option value="112">East of the Izu Islands</option>
+        
+            <option value="113">East of the Mariana Islands</option>
+        
+            <option value="114">East of the Volcano Islands</option>
+        
+            <option value="115">Easter Island region</option>
+        
+            <option value="116">Eastern Montana</option>
+        
+            <option value="117">Eastern Xizang</option>
+        
+            <option value="118">Ecuador</option>
+        
+            <option value="119">Egypt</option>
+        
+            <option value="120">El Salvador</option>
+        
+            <option value="121">Eritrea</option>
+        
+            <option value="122">Estonia</option>
+        
+            <option value="123">Eswatini</option>
+        
+            <option value="124">Ethiopia</option>
+        
+            <option value="125">Falkland Islands region</option>
+        
+            <option value="126">Faroe Islands</option>
+        
+            <option value="127">Federated States of Micronesia</option>
+        
+            <option value="128">Federated States of Micronesia region</option>
+        
+            <option value="129">Fiji</option>
+        
+            <option value="130">Finland</option>
+        
+            <option value="131">Flores Sea</option>
+        
+            <option value="132">Florida</option>
+        
+            <option value="133">France</option>
+        
+            <option value="134">French Guiana</option>
+        
+            <option value="135">French Polynesia</option>
+        
+            <option value="136">French Southern Territories</option>
+        
+            <option value="137">Gabon</option>
+        
+            <option value="138">Galapagos Triple Junction region</option>
+        
+            <option value="139">Georgia</option>
+        
+            <option value="140">Germany</option>
+        
+            <option value="141">Ghana</option>
+        
+            <option value="142">Gibraltar</option>
+        
+            <option value="143">Greece</option>
+        
+            <option value="144">Greenland</option>
+        
+            <option value="145">Grenada</option>
+        
+            <option value="146">Guadeloupe</option>
+        
+            <option value="147">Guam</option>
+        
+            <option value="148">Guatemala</option>
+        
+            <option value="149">Guernsey</option>
+        
+            <option value="150">Guinea</option>
+        
+            <option value="151">Gulf of Aden</option>
+        
+            <option value="152">Gulf of Alaska</option>
+        
+            <option value="153">Gulf of California</option>
+        
+            <option value="154">Guyana</option>
+        
+            <option value="155">HI</option>
+        
+            <option value="156">Haiti</option>
+        
+            <option value="157">Hawaii</option>
+        
+            <option value="158">Hawaiian Islands region</option>
+        
+            <option value="159">Honduras</option>
+        
+            <option value="160">Hong Kong</option>
+        
+            <option value="161">Hungary</option>
+        
+            <option value="162">ID</option>
+        
+            <option value="163">Iceland</option>
+        
+            <option value="164">Idaho</option>
+        
+            <option value="165">Idaho-Montana border region</option>
+        
+            <option value="166">Illinois</option>
+        
+            <option value="167">Illinois-Kentucky border region</option>
+        
+            <option value="168">India</option>
+        
+            <option value="169">Indonesia</option>
+        
+            <option value="170">Ionian Sea</option>
+        
+            <option value="171">Iowa</option>
+        
+            <option value="172">Iran</option>
+        
+            <option value="173">Iraq</option>
+        
+            <option value="174">Ireland</option>
+        
+            <option value="175">Isle of Man</option>
+        
+            <option value="176">Israel</option>
+        
+            <option value="177">Italy</option>
+        
+            <option value="178">Jamaica</option>
+        
+            <option value="179">Jan Mayen Island region</option>
+        
+            <option value="180">Japan</option>
+        
+            <option value="181">Java Sea</option>
+        
+            <option value="182">Jersey</option>
+        
+            <option value="183">Jordan</option>
+        
+            <option value="184">Juan Fernandez Islands region</option>
+        
+            <option value="185">KS</option>
+        
+            <option value="186">KY</option>
+        
+            <option value="187">Kahramanmaras Earthquake Sequence</option>
+        
+            <option value="188">Kahramanmaras earthquake sequence</option>
+        
+            <option value="189">Kalibo</option>
+        
+            <option value="190">Kansas</option>
+        
+            <option value="191">Kashmir-Xinjiang border region</option>
+        
+            <option value="192">Kashmir-Xizang border region</option>
+        
+            <option value="193">Kazakhstan</option>
+        
+            <option value="194">Kentucky</option>
+        
+            <option value="195">Kentucky-Tennessee border region</option>
+        
+            <option value="196">Kenya</option>
+        
+            <option value="197">Kerguelen Islands region</option>
+        
+            <option value="198">Kermadec Islands region</option>
+        
+            <option value="199">Kiribati</option>
+        
+            <option value="200">Kosovo</option>
+        
+            <option value="201">Kuril Islands</option>
+        
+            <option value="202">Kuwait</option>
+        
+            <option value="203">Kyrgyzstan</option>
+        
+            <option value="204">Labrador Sea</option>
+        
+            <option value="205">Laccadive Sea</option>
+        
+            <option value="206">Laikit II (Dimembe)</option>
+        
+            <option value="207">Lake Almanor Earthquake</option>
+        
+            <option value="208">Laos</option>
+        
+            <option value="209">Laptev Sea</option>
+        
+            <option value="210">Latvia</option>
+        
+            <option value="211">Lebanon</option>
+        
+            <option value="212">Leeward Islands</option>
+        
+            <option value="213">Lesotho</option>
+        
+            <option value="214">Liberia</option>
+        
+            <option value="215">Libya</option>
+        
+            <option value="216">Liechtenstein</option>
+        
+            <option value="217">Ligurian Sea</option>
+        
+            <option value="218">Lithuania</option>
+        
+            <option value="219">Lomonosov Ridge</option>
+        
+            <option value="220">Louisiana</option>
+        
+            <option value="221">Luxembourg</option>
+        
+            <option value="222">ME</option>
+        
+            <option value="223">MO</option>
+        
+            <option value="224">MT</option>
+        
+            <option value="225">Macedonia</option>
+        
+            <option value="226">Macquarie Island region</option>
+        
+            <option value="227">Madagascar</option>
+        
+            <option value="228">Maine</option>
+        
+            <option value="229">Malawi</option>
+        
+            <option value="230">Malaysia</option>
+        
+            <option value="231">Maldive Islands region</option>
+        
+            <option value="232">Maldives</option>
+        
+            <option value="233">Mali</option>
+        
+            <option value="234">Malta</option>
+        
+            <option value="235">Mariana Islands region</option>
+        
+            <option value="236">Marshall Islands</option>
+        
+            <option value="237">Martinique</option>
+        
+            <option value="238">Maryland</option>
+        
+            <option value="239">Massachusetts</option>
+        
+            <option value="240">Mauritania</option>
+        
+            <option value="241">Mauritius</option>
+        
+            <option value="242">Mayotte</option>
+        
+            <option value="243">Mexico</option>
+        
+            <option value="244">Michigan</option>
+        
+            <option value="245">Micronesia</option>
+        
+            <option value="246">Midway Islands region</option>
+        
+            <option value="247">Mindanao</option>
+        
+            <option value="248">Minnesota</option>
+        
+            <option value="249">Mississippi</option>
+        
+            <option value="250">Missouri</option>
+        
+            <option value="251">Missouri-Arkansas border region</option>
+        
+            <option value="252">Missouri-Illinois border region</option>
+        
+            <option value="253">Molucca Sea</option>
+        
+            <option value="254">Mona Passage</option>
+        
+            <option value="255">Monaco</option>
+        
+            <option value="256">Mongolia</option>
+        
+            <option value="257">Montana</option>
+        
+            <option value="258">Montenegro</option>
+        
+            <option value="259">Montserrat</option>
+        
+            <option value="260">Morocco</option>
+        
+            <option value="261">Mozambique</option>
+        
+            <option value="262">Myanmar</option>
+        
+            <option value="263">NE</option>
+        
+            <option value="264">NJ</option>
+        
+            <option value="265">NM</option>
+        
+            <option value="266">NV</option>
+        
+            <option value="267">NV Earthquake</option>
+        
+            <option value="268">NY</option>
+        
+            <option value="269">Namibia</option>
+        
+            <option value="270">Near the coast of Central California</option>
+        
+            <option value="271">Nebraska</option>
+        
+            <option value="272">Nepal</option>
+        
+            <option value="273">Netherlands</option>
+        
+            <option value="274">Nevada</option>
+        
+            <option value="275">New Caledonia</option>
+        
+            <option value="276">New Hampshire</option>
+        
+            <option value="277">New York</option>
+        
+            <option value="278">New Zealand</option>
+        
+            <option value="279">Nicaragua</option>
+        
+            <option value="280">Niger</option>
+        
+            <option value="281">Nigeria</option>
+        
+            <option value="282">North Atlantic Ocean</option>
+        
+            <option value="283">North Carolina</option>
+        
+            <option value="284">North Dakota</option>
+        
+            <option value="285">North Korea</option>
+        
+            <option value="286">North Pacific Ocean</option>
+        
+            <option value="287">North Sea</option>
+        
+            <option value="288">Northern California</option>
+        
+            <option value="289">Northern Idaho</option>
+        
+            <option value="290">Northern Mariana Islands</option>
+        
+            <option value="291">Northern Texas</option>
+        
+            <option value="292">Northwest Territories</option>
+        
+            <option value="293">Norway</option>
+        
+            <option value="294">Norwegian Sea</option>
+        
+            <option value="295">Nunavut</option>
+        
+            <option value="296">OK</option>
+        
+            <option value="297">OR</option>
+        
+            <option value="298">Off the coast of Oregon</option>
+        
+            <option value="299">Ohio</option>
+        
+            <option value="300">Ohio-Kentucky border region</option>
+        
+            <option value="301">Oklahoma</option>
+        
+            <option value="302">Oklahoma-Missouri-Arkansas border region</option>
+        
+            <option value="303">Oman</option>
+        
+            <option value="304">Oregon</option>
+        
+            <option value="305">Oregon-Idaho border region</option>
+        
+            <option value="306">Owen Fracture Zone region</option>
+        
+            <option value="307">PA</option>
+        
+            <option value="308">Pacific-Antarctic Ridge</option>
+        
+            <option value="309">Pakistan</option>
+        
+            <option value="310">Palau</option>
+        
+            <option value="311">Palestinian Territory</option>
+        
+            <option value="312">Panama</option>
+        
+            <option value="313">Papua New Guinea</option>
+        
+            <option value="314">Pasadena</option>
+        
+            <option value="315">Pennsylvania</option>
+        
+            <option value="316">Persian Gulf</option>
+        
+            <option value="317">Peru</option>
+        
+            <option value="318">Philippine Islands region</option>
+        
+            <option value="319">Philippine Sea</option>
+        
+            <option value="320">Philippines</option>
+        
+            <option value="321">Pitcairn Islands region</option>
+        
+            <option value="322">Poland</option>
+        
+            <option value="323">Portugal</option>
+        
+            <option value="324">Prince Edward Islands region</option>
+        
+            <option value="325">Puerto Rico</option>
+        
+            <option value="326">Pyrenees</option>
+        
+            <option value="327">Quebec</option>
+        
+            <option value="328">Red Sea</option>
+        
+            <option value="329">Republic of the Congo</option>
+        
+            <option value="330">Reunion</option>
+        
+            <option value="331">Revilla Gigedo Islands</option>
+        
+            <option value="332">Revilla Gigedo Islands region</option>
+        
+            <option value="333">Reykjanes Ridge</option>
+        
+            <option value="334">Rhode Island</option>
+        
+            <option value="335">Romania</option>
+        
+            <option value="336">Ross Sea</option>
+        
+            <option value="337">Russia</option>
+        
+            <option value="338">Rwanda</option>
+        
+            <option value="339">Saint Helena</option>
+        
+            <option value="340">Saint Kitts and Nevis</option>
+        
+            <option value="341">Saint Lucia</option>
+        
+            <option value="342">Saint Pierre and Miquelon</option>
+        
+            <option value="343">Saint Vincent and the Grenadines</option>
+        
+            <option value="344">Sakha</option>
+        
+            <option value="345">Samoa</option>
+        
+            <option value="346">San Felipe</option>
+        
+            <option value="347">San Marino</option>
+        
+            <option value="348">Santa Cruz Islands</option>
+        
+            <option value="349">Santa Cruz Islands region</option>
+        
+            <option value="350">Sao Tome and Principe</option>
+        
+            <option value="351">Saudi Arabia</option>
+        
+            <option value="352">Savu Sea</option>
+        
+            <option value="353">Scotia Sea</option>
+        
+            <option value="354">Sea of Okhotsk</option>
+        
+            <option value="355">Senegal</option>
+        
+            <option value="356">Serbia</option>
+        
+            <option value="357">Seychelles</option>
+        
+            <option value="358">Sierra Leone</option>
+        
+            <option value="359">Slovakia</option>
+        
+            <option value="360">Slovenia</option>
+        
+            <option value="361">Socotra region</option>
+        
+            <option value="362">Solomon Islands</option>
+        
+            <option value="363">Somalia</option>
+        
+            <option value="364">Son.</option>
+        
+            <option value="365">South Africa</option>
+        
+            <option value="366">South Atlantic Ocean</option>
+        
+            <option value="367">South Carolina</option>
+        
+            <option value="368">South Dakota</option>
+        
+            <option value="369">South Korea</option>
+        
+            <option value="370">South Napa</option>
+        
+            <option value="371">South Pacific Ocean</option>
+        
+            <option value="372">South Sandwich Islands region</option>
+        
+            <option value="373">South Shetland Islands</option>
+        
+            <option value="374">South of the Mariana Islands</option>
+        
+            <option value="375">Southeastern Alaska</option>
+        
+            <option value="376">Southeastern Missouri</option>
+        
+            <option value="377">Southern Alaska</option>
+        
+            <option value="378">Southern California</option>
+        
+            <option value="379">Southern Texas</option>
+        
+            <option value="380">Spain</option>
+        
+            <option value="381">Sri Lanka</option>
+        
+            <option value="382">Stoke-on-Trent</option>
+        
+            <option value="383">Strait of Hormuz</option>
+        
+            <option value="384">Sudan</option>
+        
+            <option value="385">Sulawesi</option>
+        
+            <option value="386">Sulu Sea</option>
+        
+            <option value="387">Surigao del Norte</option>
+        
+            <option value="388">Svalbard and Jan Mayen</option>
+        
+            <option value="389">Svalbard region</option>
+        
+            <option value="390">Sweden</option>
+        
+            <option value="391">Switzerland</option>
+        
+            <option value="392">Syria</option>
+        
+            <option value="393">TN</option>
+        
+            <option value="394">TX</option>
+        
+            <option value="395">Taiwan</option>
+        
+            <option value="396">Tajikistan</option>
+        
+            <option value="397">Tanzania</option>
+        
+            <option value="398">Tennessee</option>
+        
+            <option value="399">Tennessee-North Carolina border region</option>
+        
+            <option value="400">Tennessee-Virginia border region</option>
+        
+            <option value="401">Texas</option>
+        
+            <option value="402">Texas Panhandle region</option>
+        
+            <option value="403">Texas-Chihuahua border region</option>
+        
+            <option value="404">Thailand</option>
+        
+            <option value="405">Timor Leste</option>
+        
+            <option value="406">Timor Sea</option>
+        
+            <option value="407">Timor region</option>
+        
+            <option value="408">Tokelau</option>
+        
+            <option value="409">Tonga</option>
+        
+            <option value="410">Trinidad</option>
+        
+            <option value="411">Trinidad and Tobago</option>
+        
+            <option value="412">Tristan da Cunha region</option>
+        
+            <option value="413">Tunisia</option>
+        
+            <option value="414">Turkey</option>
+        
+            <option value="415">Turkmenistan</option>
+        
+            <option value="416">Tuvalu</option>
+        
+            <option value="417">Tyrrhenian Sea</option>
+        
+            <option value="418">USA</option>
+        
+            <option value="419">UT</option>
+        
+            <option value="420">Uganda</option>
+        
+            <option value="421">Ukraine</option>
+        
+            <option value="422">United Arab Emirates</option>
+        
+            <option value="423">United Kingdom</option>
+        
+            <option value="424">United States</option>
+        
+            <option value="425">Utah</option>
+        
+            <option value="426">Uzbekistan</option>
+        
+            <option value="427">Vanuatu</option>
+        
+            <option value="428">Venezuela</option>
+        
+            <option value="429">Vermont</option>
+        
+            <option value="430">Vietnam</option>
+        
+            <option value="431">Virgin Islands</option>
+        
+            <option value="432">Virginia</option>
+        
+            <option value="433">Virginia-North Carolina border region</option>
+        
+            <option value="434">WA</option>
+        
+            <option value="435">WY</option>
+        
+            <option value="436">Wallis and Futuna</option>
+        
+            <option value="437">Washington</option>
+        
+            <option value="438">Washington-British Columbia border region</option>
+        
+            <option value="439">Washington-Oregon border region</option>
+        
+            <option value="440">West Virginia</option>
+        
+            <option value="441">West of the Mariana Islands</option>
+        
+            <option value="442">West of the Queen Charlotte Islands</option>
+        
+            <option value="443">Western Montana</option>
+        
+            <option value="444">Windward Islands</option>
+        
+            <option value="445">Wisconsin</option>
+        
+            <option value="446">Wyoming</option>
+        
+            <option value="447">Xinjiang-Xizang border region</option>
+        
+            <option value="448">Xizang-Qinghai border region</option>
+        
+            <option value="449">Yemen</option>
+        
+            <option value="450">Zambia</option>
+        
+            <option value="451">Zimbabwe</option>
+        
+            <option value="452">central East Pacific Rise</option>
+        
+            <option value="453">central Mediterranean Sea</option>
+        
+            <option value="454">central Mid-Atlantic Ridge</option>
+        
+            <option value="455">east Siberian Sea</option>
+        
+            <option value="456">east central Pacific Ocean</option>
+        
+            <option value="457">east of Severnaya Zemlya</option>
+        
+            <option value="458">east of the Kuril Islands</option>
+        
+            <option value="459">east of the Philippine Islands</option>
+        
+            <option value="460">east of the South Sandwich Islands</option>
+        
+            <option value="461">eastern Kashmir</option>
+        
+            <option value="462">eastern Mediterranean Sea</option>
+        
+            <option value="463">eastern Missouri</option>
+        
+            <option value="464">el Tibidabo i les Planes</option>
+        
+            <option value="465">near the coast of Northern California</option>
+        
+            <option value="466">near the coast of Oregon</option>
+        
+            <option value="467">near the coast of Washington</option>
+        
+            <option value="468">near the south coast of Myanmar</option>
+        
+            <option value="469">north of Ascension Island</option>
+        
+            <option value="470">north of Franz Josef Land</option>
+        
+            <option value="471">north of Macquarie Island</option>
+        
+            <option value="472">north of Severnaya Zemlya</option>
+        
+            <option value="473">north of Svalbard</option>
+        
+            <option value="474">northern Alaska</option>
+        
+            <option value="475">northern East Pacific Rise</option>
+        
+            <option value="476">northern Mid-Atlantic Ridge</option>
+        
+            <option value="477">northwest of the Kuril Islands</option>
+        
+            <option value="478">northwestern Kashmir</option>
+        
+            <option value="479">off the coast of California</option>
+        
+            <option value="480">off the coast of Central America</option>
+        
+            <option value="481">off the coast of Northern California</option>
+        
+            <option value="482">off the coast of Oregon</option>
+        
+            <option value="483">off the coast of Southeastern Alaska</option>
+        
+            <option value="484">off the coast of Washington</option>
+        
+            <option value="485">off the west coast of northern Sumatra</option>
+        
+            <option value="486">south of Africa</option>
+        
+            <option value="487">south of Alaska</option>
+        
+            <option value="488">south of Tasmania</option>
+        
+            <option value="489">south of Timor</option>
+        
+            <option value="490">south of the Aleutian Islands</option>
+        
+            <option value="491">south of the Chatham Islands</option>
+        
+            <option value="492">south of the Kermadec Islands</option>
+        
+            <option value="493">south of the Mariana Islands</option>
+        
+            <option value="494">southeast central Pacific Ocean</option>
+        
+            <option value="495">southeast of Easter Island</option>
+        
+            <option value="496">southeast of the Galapagos Islands</option>
+        
+            <option value="497">southeast of the Loyalty Islands</option>
+        
+            <option value="498">southeastern Missouri</option>
+        
+            <option value="499">southern East Pacific Rise</option>
+        
+            <option value="500">southern Idaho</option>
+        
+            <option value="501">southern Kerguelen Plateau</option>
+        
+            <option value="502">southern Mid-Atlantic Ridge</option>
+        
+            <option value="503">southern New England</option>
+        
+            <option value="504">southern Pacific Ocean</option>
+        
+            <option value="505">southern Texas</option>
+        
+            <option value="506">southwest of Africa</option>
+        
+            <option value="507">southwest of the Galapagos Islands</option>
+        
+            <option value="508">southwestern Atlantic Ocean</option>
+        
+            <option value="509">southwestern Kashmir</option>
+        
+            <option value="510">west of Macquarie Island</option>
+        
+            <option value="511">west of Vancouver Island</option>
+        
+            <option value="512">west of the Galapagos Islands</option>
+        
+            <option value="513">west of the Mariana Islands</option>
+        
+            <option value="514">western Mediterranean Sea</option>
+        
+            <option value="515">western Texas</option>
+        
+            <option value="516">western Xizang</option>
+        
+            <option value="517">Ñuñoa</option>
         </select>
 
         <br>
     
         <!-- Botón de Enviar -->
-        <input type="submit" value="Enviar">
+        <input type="button" id="btnForm" value="Enviar">
     </form>
     <div>
-        <div id="mapid" style="height: 400px;"></div>
         <p id="showInfoModel"></p>
+        <p id="errorCountry"></p>
+        <div id="map" style="height: 400px; width: 100%;"></div>
     </div>
-
+    <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyBsmgMsznJgtoAJ6xQgIGeJ7eIHUhbMK8E", v: "beta"});
+    </script>
 </body>
 </html>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
