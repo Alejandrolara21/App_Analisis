@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="myForm" action="/procesar_datos" method="post">
+    <form id="myForm">
         <!-- Campo Profundidad -->
         <label for="depth">Profundidad:</label>
         <input type="number" id="depth" name="depth" required>
@@ -80,7 +80,10 @@
         <!-- Botón de Enviar -->
         <input type="submit" value="Enviar">
     </form>
-    <div id="mapid" style="height: 400px;"></div>
+    <div>
+        <div id="mapid" style="height: 400px;"></div>
+        <p id="showInfoModel"></p>
+    </div>
 
 </body>
 </html>
