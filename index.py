@@ -4,7 +4,8 @@ import joblib
 
 app = Flask(__name__)
 
-def validar_tipos(data, tipos_esperados):    
+
+def validar_tipos(data, tipos_esperados):
     # Verificar si los campos y tipos esperados están presentes en los datos
     for campo, tipo_esperado in tipos_esperados.items():
         if campo not in data:
@@ -21,23 +22,25 @@ def validar_tipos(data, tipos_esperados):
 def home():
     df_names_countries = pd.read_csv('./dataset/dataset_years.csv', sep=";")
     unique_states = df_names_countries[['state', 'state_id']].drop_duplicates()
-    list_countries = unique_states.to_dict(orient='records')    
+    list_countries = unique_states.to_dict(orient='records')
     return render_template("index.html", list_countries=list_countries)
+
 
 @app.route('/api/modeloAnalisis', methods=['POST'])
 def analisis():
     data = request.json
 
-    required_fields = ['depth', 'year', 'significance', 'state_id', 'optionTime']
+    required_fields = ['depth', 'year',
+                       'significance', 'state_id', 'optionTime']
     if not all(field in data for field in required_fields):
         return jsonify({'error': 'Faltan campos requeridos'}), 400
-    
+
     es_valido, mensaje_error = validar_tipos(data, {
-        'depth': float,
+        'depth': int,
         'year': int,
         'month': int,
         'season': int,
-        'significance': float,
+        'significance': int,
         'state_id': int,
         'optionTime': int
     })
@@ -50,31 +53,56 @@ def analisis():
     significance = data['significance']
     state_id = data['state_id']
     optionTime = data['optionTime']
-
-    data_test = {
-        'depth': [depth],
-        'year': [year],
-        'significance': [significance],
-        'state_id': [state_id],
-    }
+    season = data['season']
+    month = data['month']
 
     if optionTime == 1:
+
+        data_test = {
+            'depth': [depth],
+            'year': [year],
+            'significance': [significance],
+            'state_id': [state_id],
+        }
+
         modelo = joblib.load('./modelos_analisis/modelo_regresion_years.pkl')
     elif optionTime == 2:
-        season = data['season']
-        data_test['season'] = [season]
+
+        data_test = {
+            'depth': [depth],
+            'year': [year],
+            'season': [season],
+            'significance': [significance],
+            'state_id': [state_id],
+        }
+        
         modelo = joblib.load('./modelos_analisis/modelo_regresion_seasons.pkl')
     elif optionTime == 3:
-        month = data['month']
-        data_test['month'] = [month]
+        
+        data_test = {
+            'depth': [depth],
+            'year': [year],
+            'month': [month],
+            'significance': [significance],
+            'state_id': [state_id],
+        }
+
         modelo = joblib.load('./modelos_analisis/modelo_regresion_months.pkl')
     elif optionTime == 4:
-        month = data['month']
-        data_test['month'] = [month]
-        modelo = joblib.load('./modelos_analisis/modelo_red_neuronal_months.pkl')
+
+        data_test = {
+            'depth': [depth],
+            'year': [year],
+            'month': [month],
+            'significance': [significance],
+            'state_id': [state_id],
+        }
+
+        modelo = joblib.load(
+            './modelos_analisis/modelo_red_neuronal_months.pkl')
     else:
         return jsonify({'error': 'No se tiene esa opcion'}), 400
-    
+
     X_test = pd.DataFrame(data_test)
     new_predictions = modelo.predict(X_test)
     return jsonify({'magnitudo': new_predictions[0][0], 'frequency': new_predictions[0][1]})
