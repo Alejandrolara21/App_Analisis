@@ -20,7 +20,7 @@ def validar_tipos(data, tipos_esperados):
 
 @app.route('/')
 def home():
-    df_names_countries = pd.read_csv('./dataset/dataset_years.csv', sep=";")
+    df_names_countries = pd.read_csv('./static/dataset/dataset_years.csv', sep=";")
     unique_states = df_names_countries[['state', 'state_id']].drop_duplicates()
     list_countries = unique_states.to_dict(orient='records')
     return render_template("index.html", list_countries=list_countries)
@@ -65,7 +65,7 @@ def analisis():
             'state_id': [state_id],
         }
 
-        modelo = joblib.load('./modelos_analisis/modelo_regresion_years.pkl')
+        modelo = joblib.load('./static/modelos_analisis/modelo_regresion_years.pkl')
     elif optionTime == 2:
 
         data_test = {
@@ -76,7 +76,7 @@ def analisis():
             'state_id': [state_id],
         }
         
-        modelo = joblib.load('./modelos_analisis/modelo_regresion_seasons.pkl')
+        modelo = joblib.load('./static/modelos_analisis/modelo_regresion_seasons.pkl')
     elif optionTime == 3:
         
         data_test = {
@@ -87,7 +87,7 @@ def analisis():
             'state_id': [state_id],
         }
 
-        modelo = joblib.load('./modelos_analisis/modelo_regresion_months.pkl')
+        modelo = joblib.load('./static/modelos_analisis/modelo_regresion_months.pkl')
     elif optionTime == 4:
 
         data_test = {
@@ -98,8 +98,7 @@ def analisis():
             'state_id': [state_id],
         }
 
-        modelo = joblib.load(
-            './modelos_analisis/modelo_red_neuronal_months.pkl')
+        modelo = joblib.load('./static/modelos_analisis/modelo_red_neuronal_months.pkl')
     else:
         return jsonify({'error': 'No se tiene esa opcion'}), 400
 
